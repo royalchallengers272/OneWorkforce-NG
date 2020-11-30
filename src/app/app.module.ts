@@ -19,6 +19,7 @@ import { LeavesComponent } from './employee-management/leaves/leaves.component';
 import { ClaimsComponent } from './employee-management/claims/claims.component';
 import { PerformanceComponent } from './performance/performance.component';
 
+
 // Configs 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
