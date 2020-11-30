@@ -12,6 +12,12 @@ import {
   AuthServiceConfig,
   GoogleLoginProvider
 } from "angular-6-social-login";
+import { AppsComponent } from './apps/apps.component';
+import { EmployeeManagementComponent } from './employee-management/employee-management.component';
+import { DirectoryComponent } from './employee-management/directory/directory.component';
+import { LeavesComponent } from './employee-management/leaves/leaves.component';
+import { ClaimsComponent } from './employee-management/claims/claims.component';
+import { PerformanceComponent } from './performance/performance.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -29,7 +35,13 @@ export function getAuthServiceConfigs() {
 @NgModule({
   declarations: [
     AppComponent,
-    SigninGoogleComponent
+    SigninGoogleComponent,
+    AppsComponent,
+    EmployeeManagementComponent,
+    DirectoryComponent,
+    LeavesComponent,
+    ClaimsComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,
