@@ -34,16 +34,16 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
-      <app-signin-google [isLoggedInOut]="isLoggedIn" [loggedInUserOut]="loggedInUser" [loggedInUserDetailsOut]="loggedInUserDetails"></app-signin-google>
+      <app-signin-google [isManagerOut] = "isManager" [isLoggedInOut]="isLoggedIn" [loggedInUserOut]="loggedInUser" [loggedInUserDetailsOut]="loggedInUserDetails"></app-signin-google>
     </div>
     <div id="apps" class="container tab-pane fade"><br>
-      <app-apps></app-apps>
+      <app-apps [isManagerOut] = "isManager" ></app-apps>
     </div>
     <div id="empMng" class="container tab-pane fade"><br>
-      <app-employee-management></app-employee-management>
+      <app-employee-management [isManagerOut] = "isManager" ></app-employee-management>
     </div>
     <div id="performace" class="container tab-pane fade"><br>
-      <app-performance></app-performance>
+      <app-performance [isManagerOut] = "isManager" ></app-performance>
     </div>
   </div>
 

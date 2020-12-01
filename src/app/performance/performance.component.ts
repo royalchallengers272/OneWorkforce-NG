@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-performance',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./performance.component.scss']
 })
 export class PerformanceComponent implements OnInit {
-
+  @Input() isManagerOut:any;
   constructor() { }
 
   ngOnInit() {

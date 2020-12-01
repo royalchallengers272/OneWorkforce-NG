@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid=10001",
+      "target": "http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid=110567",
       "secure": false,
       "changeOrigin": true,
       "pathRewrite": {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent implements OnInit {
+  @Input() isManagerOut:any;
   getServerData: any;
   rowData:any;
   columnDefs = [

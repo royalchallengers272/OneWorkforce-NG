@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-employee-management',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-management.component.scss']
 })
 export class EmployeeManagementComponent implements OnInit {
+  @Input() isManagerOut:any;
   employeeManagementHome:boolean;
   clickedContent:any;
   constructor() { }

@@ -1,2 +1,229 @@
-  <h3>Performace</h3>
-  <p>Performace Content</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Previous Year - Rating
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="year">Year</label>
+                <input id="year" name="year" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="devGoals">Development Goals</label>
+                <textarea id="devGoals" name="devGoals" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="strengths">Stengths</label>
+                <textarea id="strengths" name="strengths" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="responsibilities">Responsibilities</label>
+                <textarea id="responsibilities" name="responsibilities" cols="40" rows="2"
+                  class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="accomlishments">Accomlishments</label>
+                <textarea id="accomlishments" name="accomlishments" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="rating">Rating</label>
+                <input id="rating" name="rating" type="text" class="form-control">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="accordion" id="accordionExample1">
+      <div class="card">
+        <div class="card-header" id="headingTwo2">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo2"
+              aria-expanded="true" aria-controls="collapseTwo2">
+              Current Year Performance - Self Evaluation
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo2" class="collapse show" aria-labelledby="headingTwo2" data-parent="#accordionExample1">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="year">Year</label>
+                <input id="year" name="year" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="devGoals">Development Goals</label>
+                <textarea id="devGoals" name="devGoals" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="strengths">Stengths</label>
+                <textarea id="strengths" name="strengths" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="responsibilities">Responsibilities</label>
+                <textarea id="responsibilities" name="responsibilities" cols="40" rows="2"
+                  class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="accomlishments">Accomlishments</label>
+                <textarea id="accomlishments" name="accomlishments" cols="40" rows="2" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <button name="submit" type="submit" class="btn btn-primary float-right">Submit</button>
+              </div>
+              <br/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="row" *ngIf="isManagerOut">
+  <div class="col-md-12">
+    <div class="accordion" id="accordionExample2">
+      <div class="card">
+        <div class="card-header" id="headingOne1">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne1"
+              aria-expanded="true" aria-controls="collapseOne1">
+              Performance Evaluation For Direct Reports
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordionExample2">
+          <div class="card-body">
+            <!-- <ul class="list-group">
+              <li class="list-group-item">Aarti Andhe - Previous Year Rating : Commandable&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm"
+                    data-toggle="modal" data-target="#exampleModalLong">
+                    Rate
+                  </button></li>
+              <li class="list-group-item">Prinu Philip John - Previous Year Rating : Outstanding&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm"
+                data-toggle="modal" data-target="#exampleModalLong">
+                Rate
+              </button></li>
+              <li class="list-group-item">Varun Selvakumar - Previous Year Rating : Commandable&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm"
+                data-toggle="modal" data-target="#exampleModalLong">
+                Rate
+              </button></li>
+              <li class="list-group-item">Arun Raj - Previous Year Rating : Commandable&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm"
+                data-toggle="modal" data-target="#exampleModalLong">
+                Rate
+              </button></li>
+              <li class="list-group-item">Joseph Victor - Previous Year Rating : Outstanding&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-sm"
+                data-toggle="modal" data-target="#exampleModalLong">
+                Rate
+              </button></li>
+            </ul> -->
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Last Year Rating</th>
+                  <th scope="col">Rate For Current Tear</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Aarti Andhe</td>
+                  <td>Commandable</td>
+                  <td><button type="button" class="btn btn-primary btn-sm"
+                    data-toggle="modal" data-target="#exampleModalLong">
+                    Rate
+                  </button></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Varun Selvakumar</td>
+                  <td>Commandable</td>
+                  <td><button type="button" class="btn btn-primary btn-sm"
+                    data-toggle="modal" data-target="#exampleModalLong">
+                    Rate
+                  </button></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Prinu John</td>
+                  <td>Outstanding</td>
+                  <td><button type="button" class="btn btn-primary btn-sm"
+                    data-toggle="modal" data-target="#exampleModalLong">
+                    Rate
+                  </button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Aarti Andhe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <input id="year" name="year" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="devGoals">Development Goals</label>
+            <textarea id="devGoals" name="devGoals" cols="40" rows="2" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="strengths">Stengths</label>
+            <textarea id="strengths" name="strengths" cols="40" rows="2" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="responsibilities">Responsibilities</label>
+            <textarea id="responsibilities" name="responsibilities" cols="40" rows="2"
+              class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="accomlishments">Accomlishments</label>
+            <textarea id="accomlishments" name="accomlishments" cols="40" rows="2" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Rating</label> 
+            <div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="rating" id="rating_0" type="radio" class="custom-control-input" value="Outstanding"> 
+                <label for="rating_0" class="custom-control-label">Outstanding</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="rating" id="rating_1" type="radio" class="custom-control-input" value="Commandable"> 
+                <label for="rating_1" class="custom-control-label">Commandable</label>
+              </div>
+            </div>
+          </div> 
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

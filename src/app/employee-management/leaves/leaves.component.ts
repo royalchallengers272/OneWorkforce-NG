@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-leaves',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leaves.component.scss']
 })
 export class LeavesComponent implements OnInit {
+  @Input() isManagerOut:any;
   getServerDataLeave: any;
   rowDataLeave:any;
   columnDefs = [

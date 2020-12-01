@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-directory',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./directory.component.scss']
 })
 export class DirectoryComponent implements OnInit {
-
+  @Input() isManagerOut:any;
   constructor() { }
 
   ngOnInit() {

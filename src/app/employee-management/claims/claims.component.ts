@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-claims',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./claims.component.scss']
 })
 export class ClaimsComponent implements OnInit {
+  @Input() isManagerOut:any;
   getServerDataLeave: any;
   rowDataLeave:any;
   columnDefs = [
