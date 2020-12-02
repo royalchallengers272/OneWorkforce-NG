@@ -1,0 +1,97 @@
+<div class="row" style="width: 1040px;">
+  <div class="col-md-6">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Submit Claim
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Expense Type</label>
+                <select class="form-control" id="leaveType">
+                  <option>Internet</option>
+                  <option>Accomodation</option>
+                  <option>Food</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="start">Amount </label>
+                <input type="text" class="form-control" id="start" name="Amount">
+              </div>
+              <br />
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary float-right">Submit</button><br /><br />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="accordion" id="accordionExample1">
+      <div class="card">
+        <div class="card-header" id="headingOne1">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne1"
+              aria-expanded="true" aria-controls="collapseOne1">
+              Claim Status
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordionExample1">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Broadband Claim - November 2020<span
+                  class="badge badge-pill badge-primary">Submitted</span></li>
+              <li class="list-group-item">Travel - Late Stay - 25 Nov 2020<span
+                  class="badge badge-pill badge-success">Approved</span></li>
+              <li class="list-group-item">Accomodation - November 2020<span
+                  class="badge badge-pill badge-danger">Rejected</span></li>
+              <li class="list-group-item">Broadband Claim - December 2020<span
+                  class="badge badge-pill badge-primary">Submitted</span></li>
+              <li class="list-group-item">Accomodation - December 2020<span
+                  class="badge badge-pill badge-success">Approved</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br />
+  <div class="row" *ngIf="isManagerOut">
+    <div class="col-md-12">
+      <div class="accordion" id="accordionExample2">
+        <div class="card">
+          <div class="card-header" id="headingOne2">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                Claim Action
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseOne2" class="collapse show" aria-labelledby="headingOne2" data-parent="#accordionExample2">
+            <div class="card-body">
+              <ag-grid-angular style="width: 1040px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+            [columnDefs]="columnDefs"></ag-grid-angular>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

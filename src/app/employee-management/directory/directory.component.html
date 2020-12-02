@@ -1,0 +1,86 @@
+<div class="row" style="width: 1040px;">
+  <div class="col-md-4">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Update My Profile
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>California</option>
+                    <option>Texas</option>
+                    <option>Florida</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary float-right">Save</button><br/><br/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="card" *ngIf="isManagerOut">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              Direct Reports
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Aarti Andhe</li>
+              <li class="list-group-item">Prinu Philip John</li>
+              <li class="list-group-item">Varun Selvakumar</li>
+              <li class="list-group-item">Arun Raj</li>
+              <li class="list-group-item">Joseph Victor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <ag-grid-angular
+    style="width: 750px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"></ag-grid-angular>
+</div>
+</div>

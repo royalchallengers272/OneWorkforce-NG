@@ -1,0 +1,50 @@
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <img src="../assets/circle.png" style="width:60px;height:50px;" class="rounded float-left" alt="...">
+      </div>
+      <div class="col-4 text-center">
+        <h4>One Workforce</h4>
+      </div>
+      <div *ngIf="!isLoggedIn" class="col-4 d-flex justify-content-end align-items-center">
+        <button (click)="auth0LoginOneWorkForce()" type="button" class="btn btn-light">Log In</button>
+      </div>
+      <div *ngIf="isLoggedIn" class="col-4 d-flex justify-content-end align-items-center">
+        Welcome&nbsp;&nbsp;&nbsp; <b>{{loggedInUser}}</b>!
+      </div>
+    </div>
+  </header>
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#apps">Apps</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#empMng">Employee Management</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#performace">iCount</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <app-signin-google [isManagerOut] = "isManager" [isLoggedInOut]="isLoggedIn" [loggedInUserOut]="loggedInUser" [loggedInUserDetailsOut]="loggedInUserDetails"></app-signin-google>
+    </div>
+    <div id="apps" class="container tab-pane fade"><br>
+      <app-apps [isManagerOut] = "isManager" ></app-apps>
+    </div>
+    <div id="empMng" class="container tab-pane fade"><br>
+      <app-employee-management [isManagerOut] = "isManager" ></app-employee-management>
+    </div>
+    <div id="performace" class="container tab-pane fade"><br>
+      <app-performance [isManagerOut] = "isManager" ></app-performance>
+    </div>
+  </div>
+
+</div>
