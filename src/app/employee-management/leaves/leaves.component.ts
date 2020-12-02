@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-leaves',
@@ -8,26 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LeavesComponent implements OnInit {
   @Input() isManagerOut:any;
   getServerDataLeave: any;
-  rowDataLeave:any;
+  rowData:any;
   columnDefs = [
     { field: 'emp_no',sortable: true, filter: true },
-    { field: 'name',sortable: true, filter: true},
+    { field: 'leave_type',sortable: true, filter: true},
     { field: 'from_date',sortable: true, filter: true},
     { field: 'to_date',sortable: true, filter: true},
     { field: 'reason',sortable: true, filter: true }
 ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.rowDataLeave=[{"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"},
-    {"emp_no":"725639","name":"Varun","from_date":"Nov 30, 2020","to_date":"Dec 02, 2020","Reason":"Reason"}]
-  }
+    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingleaves?emp_no=10001').subscribe(data => {
+      this.rowData = data;
+    })  
+}
 
 }

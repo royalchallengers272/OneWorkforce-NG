@@ -62,14 +62,10 @@
             </button>
           </h2>
         </div>
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div style="height: 360px;overflow-y: scroll;max-height:360px;" id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
             <ul class="list-group">
-              <li class="list-group-item">Aarti Andhe</li>
-              <li class="list-group-item">Prinu Philip John</li>
-              <li class="list-group-item">Varun Selvakumar</li>
-              <li class="list-group-item">Arun Raj</li>
-              <li class="list-group-item">Joseph Victor</li>
+              <li class="list-group-item" *ngFor="let item of empOfManager">{{item}}</li>
             </ul>
           </div>
         </div>
