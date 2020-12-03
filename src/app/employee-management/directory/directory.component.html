@@ -5,7 +5,7 @@
         <div class="card-header" id="headingOne">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Update My Profile
+              My Profile
             </button>
           </h2>
         </div>
@@ -15,12 +15,30 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  <label for="inputFName">First Name</label>
+                  <input type="text" class="form-control" id="inputFName">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputLName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLName">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmpID">Employee ID</label>
+                  <input type="text" class="form-control" id="inputEmpID">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail">
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Address</label>
+                <label for="inputAddress">Address 1</label>
                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
               </div>
               <div class="form-group">
@@ -47,26 +65,82 @@
                 </div>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary float-right">Save</button><br/><br/>
+                <label for="inputPhone">Phone</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="">
               </div>
+              <div class="form-group">
+                <label for="inputDept">Department</label>
+                <input type="text" class="form-control" id="inputDept" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="inputTheater">Theater</label>
+                <input type="text" class="form-control" id="inputTheater" placeholder="">
+              </div>
+              <!-- <div class="form-row"> -->
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary float-right">Edit</button>
+                </div><br/>
+                <!-- <div class="form-group">
+                  <button type="submit" class="btn btn-primary float-right">Save</button>
+                </div> -->
+              <!-- </div> -->
             </form>
           </div>
         </div>
       </div>
       <br/>
-      <div class="card" *ngIf="isManagerOut">
+      <!-- <div class="card" *ngIf="isManagerOut"> -->
+      <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              Direct Reports
+              Search
             </button>
           </h2>
         </div>
-        <div style="height: 360px;overflow-y: scroll;max-height:360px;" id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <!-- <div style="height: 360px;overflow-y: scroll;max-height:360px;" id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample"> -->
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
-            <ul class="list-group">
+            <!-- <ul class="list-group">
               <li class="list-group-item" *ngFor="let item of empOfManager">{{item}}</li>
-            </ul>
+            </ul> -->
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputFName">First Name</label>
+                  <input type="text" class="form-control" id="inputFName">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputLName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLName">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmpID">Employee Number</label>
+                  <input type="text" class="form-control" id="inputEmpID">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="inputDept">Department</label>
+                <input type="text" class="form-control" id="inputDept" placeholder="">
+              </div>
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary float-right">Search</button><br/>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -77,6 +151,7 @@
     style="width: 750px; height: 500px;"
     class="ag-theme-alpine"
     [rowData]="rowData"
-    [columnDefs]="columnDefs"></ag-grid-angular>
+    [columnDefs]="columnDefs"
+    [pagination]="true"></ag-grid-angular>
 </div>
 </div>
