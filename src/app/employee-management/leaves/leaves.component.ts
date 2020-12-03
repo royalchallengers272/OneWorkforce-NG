@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LeavesComponent implements OnInit {
   @Input() isManagerOut:any;
+  @Input() isHrOut:any;
   getServerDataLeave: any;
   rowData:any;
   rowDataHistory:any;
@@ -17,7 +18,15 @@ export class LeavesComponent implements OnInit {
     { field: 'leave_type',sortable: true, filter: true},
     { field: 'from_date',sortable: true, filter: true},
     { field: 'to_date',sortable: true, filter: true},
-    { field: 'reason',sortable: true, filter: true }
+    { field: 'reason',sortable: true, filter: true },
+    {
+      headerName: 'Action',
+      field: 'emp_no',
+     // onCellClicked : (function (params) { self.addTab(params.value);}),
+      cellRenderer : (function (params) {return '<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#leaveApproval">Action</button>';}),
+      sortable: false, filter: false
+      
+    }
 ];
 columnDefsHistory = [
   { headerName: 'Start Date',field: 'from_date',sortable: true, filter: true },

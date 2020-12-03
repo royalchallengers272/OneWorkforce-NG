@@ -14,6 +14,7 @@ export class AppComponent {
   loggedInUserDetails=""
   loggedInUser = ""
   isManager:boolean;
+  isHr:boolean;
   constructor(private http: HttpClient,public auth: AuthService,@Inject(DOCUMENT) public document: Document) { }
   public auth0LoginOneWorkForce() {
     this.auth.loginWithRedirect()
@@ -35,6 +36,11 @@ export class AppComponent {
           if(result.name=='raghavadevaraje.urs@sjsu.edu'){
             emplIdTemp = 10001;
             this.isManager=true;
+          }
+          else if(result.name=='varunselvakumar90@gmail.com'){
+            console.log("this.isHr=true;");
+            emplIdTemp = 10004;
+            this.isHr=true;
           }
           else {
             emplIdTemp = 10003;

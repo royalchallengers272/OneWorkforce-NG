@@ -7,6 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class EmployeeManagementComponent implements OnInit {
   @Input() isManagerOut:any;
+  @Input() isHrOut:any;
   employeeManagementHome:boolean;
   clickedContent:any;
   constructor() { }

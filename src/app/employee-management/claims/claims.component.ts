@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClaimsComponent implements OnInit {
   @Input() isManagerOut:any;
+  @Input() isHrOut:any;
   getServerDataLeave: any;
   rowData:any;
   columnDefs = [

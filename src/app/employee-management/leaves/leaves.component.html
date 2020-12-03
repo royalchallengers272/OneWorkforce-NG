@@ -92,3 +92,40 @@
     </div>
   </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="leaveApproval" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Action</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="approve"> 
+                <label for="radio_0" class="custom-control-label">Approve</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="reject"> 
+                <label for="radio_1" class="custom-control-label">Reject</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="textarea">Comments</label> 
+            <textarea id="textarea" name="textarea" cols="40" rows="3" class="form-control"></textarea>
+          </div> 
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

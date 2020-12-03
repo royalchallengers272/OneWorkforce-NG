@@ -9,6 +9,7 @@ export class SigninGoogleComponent implements OnInit {
   @Input() loggedInUserDetailsOut: any;
   @Input() isLoggedInOut: any;
   @Input() isManagerOut:any;
+  @Input() isHrOut:any;
 
   constructor() { }
 
