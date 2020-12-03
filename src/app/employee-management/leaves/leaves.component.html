@@ -15,7 +15,7 @@
             <form>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Time Off Type</label>
-                <select class="form-control" id="leaveType">
+                <select [(ngModel)]="leaveType" name="leaveType" class="form-control" id="leaveType">
                   <option>Sick</option>
                   <option>Casual</option>
                   <option>Unpaid</option>
@@ -23,15 +23,15 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Reason</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input [(ngModel)]="leaveReason" name="leaveReason" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="form-group">
                 <label for="start">Start Date</label>
-                <input type="date" class="form-control" id="start" name="Start Date">
+                <input [(ngModel)]="leaveStartDt" name="leaveStartDt" type="date" class="form-control" id="start" name="Start Date">
               </div>
               <div class="form-group">
                 <label for="end">End Date</label>
-                <input type="date" class="form-control" id="end" name="End Date">
+                <input [(ngModel)]="leaveEnd" name="leaveEnd" type="date" class="form-control" id="end" name="End Date">
               </div>
               <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -41,7 +41,15 @@
               </div> -->
               <br />
               <div class="form-group">
-                <button type="submit" class="btn btn-primary float-right">Apply</button><br /><br />
+                <span *ngIf="applyLeaveSaved">
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Saved!!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </span>
+                <button (click)="applyLeave()" type="submit" class="btn btn-primary float-right">Apply</button><br /><br />
               </div>
             </form>
           </div>
@@ -85,7 +93,7 @@
         <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordionExample2">
           <div class="card-body">
             <ag-grid-angular [pagination]="true" style="width: 1040px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
-            [columnDefs]="columnDefs"></ag-grid-angular>
+            [columnDefs]="columnDefs" (cellClicked)='onCellClicked($event)'></ag-grid-angular>
           </div>
         </div>
       </div>
@@ -107,24 +115,32 @@
           <div class="form-group">
             <div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="approve"> 
+                <input [(ngModel)]="leaveActionRadio" name="leaveActionRadio" id="radio_0" type="radio" class="custom-control-input" value="approve"> 
                 <label for="radio_0" class="custom-control-label">Approve</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="reject"> 
+                <input [(ngModel)]="leaveActionRadio" name="leaveActionRadio" id="radio_1" type="radio" class="custom-control-input" value="reject"> 
                 <label for="radio_1" class="custom-control-label">Reject</label>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="textarea">Comments</label> 
-            <textarea id="textarea" name="textarea" cols="40" rows="3" class="form-control"></textarea>
+            <textarea [(ngModel)]="leaveActionComments" id="textarea" name="leaveActionComments" cols="40" rows="3" class="form-control"></textarea>
           </div> 
         </form>
       </div>
       <div class="modal-footer">
+        <span *ngIf="leaveActionSaved">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Saved!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </span>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" (click)="leaveAppRejAction()" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

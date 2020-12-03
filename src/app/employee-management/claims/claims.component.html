@@ -50,30 +50,20 @@
   </div>
   <div class="col-md-6">
     <div class="accordion" id="accordionExample1">
-      <div class="card">
+      <div class="card" style="width: 37rem;">
         <div class="card-header" id="headingOne1">
           <h2 class="mb-0">
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne1"
               aria-expanded="true" aria-controls="collapseOne1">
-              Claim Status
+              History
             </button>
           </h2>
         </div>
 
         <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordionExample1">
           <div class="card-body">
-            <ul class="list-group">
-              <li class="list-group-item">Broadband Claim - November 2020<span
-                  class="badge badge-pill badge-primary">Submitted</span></li>
-              <li class="list-group-item">Travel - Late Stay - 25 Nov 2020<span
-                  class="badge badge-pill badge-success">Approved</span></li>
-              <li class="list-group-item">Accomodation - November 2020<span
-                  class="badge badge-pill badge-danger">Rejected</span></li>
-              <li class="list-group-item">Broadband Claim - December 2020<span
-                  class="badge badge-pill badge-primary">Submitted</span></li>
-              <li class="list-group-item">Accomodation - December 2020<span
-                  class="badge badge-pill badge-success">Approved</span></li>
-            </ul>
+            <ag-grid-angular [pagination]="true" style="width: 35rem;height:27rem;" class="ag-theme-alpine" [rowData]="rowDataHistory"
+            [columnDefs]="columnDefsHistory"></ag-grid-angular>
           </div>
         </div>
       </div>
@@ -96,10 +86,55 @@
           <div id="collapseOne2" class="collapse show" aria-labelledby="headingOne2" data-parent="#accordionExample2">
             <div class="card-body">
               <ag-grid-angular style="width: 1040px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
-            [columnDefs]="columnDefs" [pagination]="true"></ag-grid-angular>
+            [columnDefs]="columnDefs" (cellClicked)='onCellClicked($event)' [pagination]="true"></ag-grid-angular>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Modal -->
+<div class="modal fade" id="leaveApproval" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Action</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input [(ngModel)]="claimActionRadio" name="claimActionRadio" id="radio_0" type="radio" class="custom-control-input" value="approve"> 
+                <label for="radio_0" class="custom-control-label">Approve</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input [(ngModel)]="claimActionRadio" name="claimActionRadio" id="radio_1" type="radio" class="custom-control-input" value="reject"> 
+                <label for="radio_1" class="custom-control-label">Reject</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="textarea">Comments</label> 
+            <textarea [(ngModel)]="claimActionComments" id="textarea" name="claimActionComments" cols="40" rows="3" class="form-control"></textarea>
+          </div> 
+        </form>
+      </div>
+      <div class="modal-footer">
+        <span *ngIf="claimActionSaved">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Saved!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </span>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="claimAppRejAction()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
