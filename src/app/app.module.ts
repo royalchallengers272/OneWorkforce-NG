@@ -14,7 +14,7 @@ import { DirectoryComponent } from './employee-management/directory/directory.co
 import { LeavesComponent } from './employee-management/leaves/leaves.component';
 import { ClaimsComponent } from './employee-management/claims/claims.component';
 import { PerformanceComponent } from './performance/performance.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,6 +31,7 @@ import { PerformanceComponent } from './performance/performance.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     AgGridModule.withComponents([]),
@@ -38,9 +39,10 @@ import { PerformanceComponent } from './performance/performance.component';
     AuthModule.forRoot({
       domain: 'royalchallengers272.us.auth0.com',
       clientId: 'wPtozXw17LvcxQZLTfgcV5nE37xQsZ7l'
-    }),
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

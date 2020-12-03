@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class DirectoryComponent implements OnInit {
   @Input() isManagerOut:any;
    @Input() isHrOut:any;
+   @Input() employee_number:any;
   rowData:any;
   columnDefs = [
     { headerName: 'Employee number',field: 'emp_no',sortable: true, filter: true },
@@ -20,9 +21,43 @@ export class DirectoryComponent implements OnInit {
 ];
 
   empOfManager: any;
+  fName:any;
+  lName:any;
+  email:any;
+  address1:any;
+  address2:any;
+  city:any;
+  state:any;
+  zip:any;
+  department:any;
+  theatre:any;
+  phone:any;
+  profileSaved:boolean=false;
+
+  fName_S:any= "";
+  lName_S:any= "";
+  empNumber_S:any= "";
+  email_S:any= "";
+  phone_S:any= "";
+  department_S:any= "";
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.profileSaved = false;
+    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid='+this.employee_number).subscribe(data => {
+              this.fName=data[0].first_name;
+              this.lName=data[0].last_name;
+              this.email=data[0].email;
+              this.address1=data[0].address1;
+              this.address2=data[0].address2;
+              this.city=data[0].city;
+              this.state=data[0].state;
+              this.zip=data[0].zip;
+              this.department=data[0].department;
+              this.phone=data[0].phone;
+              this.theatre=data[0].theatre;
+    })
     if(this.isManagerOut){
       this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
             this.rowData=data;
@@ -49,6 +84,20 @@ export class DirectoryComponent implements OnInit {
     // this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
     //         this.empOfManager = data.map(function (el) { return el.first_name+" "+el.last_name; });
     // })
+  }
+  public empSearch() {
+    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
+            this.rowData=data;
+      })
+  }
+  public empSave() {
+    let headers = { 'content-type': 'application/json'} ;
+    this.profileSaved = true;
+    let empSaveObj = {"first_name":this.fName,"last_name":this.lName,"phone":this.phone,"theater":this.theatre,"email":this.email,"password":"password","address1":this.address1,"address2":this.address2,"city":this.city,"state":this.state,"zip":this.zip,"emp_no":this.employee_number};
+    let body=JSON.stringify(empSaveObj);
+    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateDirectory',body,{'headers':headers}).subscribe(data => {
+            this.profileSaved = true;
+      })
   }
 
 }

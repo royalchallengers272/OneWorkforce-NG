@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class LeavesComponent implements OnInit {
   @Input() isManagerOut:any;
   @Input() isHrOut:any;
+  @Input() employee_number:any;
   getServerDataLeave: any;
   rowData:any;
   rowDataHistory:any;

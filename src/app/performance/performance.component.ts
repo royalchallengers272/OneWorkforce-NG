@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PerformanceComponent implements OnInit {
   @Input() isManagerOut:any;
   @Input() isHrOut:any;
+  @Input() employee_number:any;
   constructor() { }
 
   ngOnInit() {

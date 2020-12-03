@@ -9,6 +9,7 @@ import { Component, OnInit,Input } from '@angular/core';
 export class AppsComponent implements OnInit {
   @Input() isManagerOut:any;
   @Input() isHrOut:any;
+  @Input() employee_number:any;
   constructor() { }
   ngOnInit() {
   }

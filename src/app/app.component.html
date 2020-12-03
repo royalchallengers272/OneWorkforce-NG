@@ -58,13 +58,13 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
-      <app-signin-google [isHrOut] = "isHr" [isManagerOut] = "isManager" [isLoggedInOut]="isLoggedIn" [loggedInUserOut]="loggedInUser" [loggedInUserDetailsOut]="loggedInUserDetails"></app-signin-google>
+      <app-signin-google [employee_number]="employee_number" [isHrOut] = "isHr" [isManagerOut] = "isManager" [isLoggedInOut]="isLoggedIn" [loggedInUserOut]="loggedInUser" [loggedInUserDetailsOut]="loggedInUserDetails"></app-signin-google>
     </div>
     <div id="apps" class="container tab-pane fade"><br>
-      <app-apps [isHrOut] = "isHr" [isManagerOut] = "isManager" ></app-apps>
+      <app-apps [employee_number]="employee_number" [isHrOut] = "isHr" [isManagerOut] = "isManager" ></app-apps>
     </div>
     <div id="empMng" class="container tab-pane fade"><br>
-      <app-employee-management [isHrOut] = "isHr" [isManagerOut] = "isManager" ></app-employee-management>
+      <app-employee-management [employee_number]="employee_number" [isHrOut] = "isHr" [isManagerOut] = "isManager" ></app-employee-management>
     </div>
     <!-- <div id="performace" class="container tab-pane fade"><br>
       <app-performance [isManagerOut] = "isManager" ></app-performance>

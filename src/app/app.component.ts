@@ -15,6 +15,7 @@ export class AppComponent {
   loggedInUser = ""
   isManager:boolean;
   isHr:boolean;
+  employee_number:any;
   constructor(private http: HttpClient,public auth: AuthService,@Inject(DOCUMENT) public document: Document) { }
   public auth0LoginOneWorkForce() {
     this.auth.loginWithRedirect()
@@ -34,15 +35,17 @@ export class AppComponent {
           this.loggedInUserDetails="Signed in As '"+result.nickname +"' using '"+result.name+"'";
           var emplIdTemp;
           if(result.name=='raghavadevaraje.urs@sjsu.edu'){
+            this.employee_number=10001;
             emplIdTemp = 10001;
             this.isManager=true;
           }
           else if(result.name=='varunselvakumar90@gmail.com'){
-            console.log("this.isHr=true;");
+            this.employee_number=10004;
             emplIdTemp = 10004;
             this.isHr=true;
           }
           else {
+            this.employee_number=10003;
             emplIdTemp = 10003;
             this.isManager=false;
           }
