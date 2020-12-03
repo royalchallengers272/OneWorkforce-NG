@@ -15,7 +15,7 @@ export class DirectoryComponent implements OnInit {
     { headerName: 'Email',field: 'email',sortable: true, filter: true},
     { headerName: 'Manager',field: 'managername',sortable: true, filter: true},
     { headerName: 'Phone',field: 'city',sortable: true, filter: true},
-    { headerName: 'Department',field: 'state',sortable: true, filter: true}
+    { headerName: 'Department',field: 'department',sortable: true, filter: true}
 ];
   empOfManager: any;
   constructor(private http: HttpClient) { }

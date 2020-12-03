@@ -23,6 +23,10 @@ export class EmployeeManagementComponent implements OnInit {
       this.clickedContent="Claim";
       this.employeeManagementHome=false;
     }
+    else if(contentClicked=="performance"){
+      this.clickedContent="performance";
+      this.employeeManagementHome=false;
+    }
     else{
       this.clickedContent="";
       this.employeeManagementHome=true;

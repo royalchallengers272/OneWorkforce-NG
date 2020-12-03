@@ -51,7 +51,7 @@
   </div>
   <div class="col-md-6">
     <div class="accordion" id="accordionExample1">
-      <div class="card">
+      <div class="card" style="width: 37rem;">
         <div class="card-header" id="headingTwo2">
           <h2 class="mb-0">
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo2"
@@ -62,18 +62,8 @@
         </div>
         <div id="collapseTwo2" class="collapse show" aria-labelledby="headingTwo2" data-parent="#accordionExample1">
           <div class="card-body">
-            <ul class="list-group">
-              <li class="list-group-item">20 Jan 2021 - 25 Jan 2021<span
-                  class="badge badge-pill badge-primary">Applied</span></li>
-              <li class="list-group-item">20 Feb 2021 - 25 Mar 2021<span
-                  class="badge badge-pill badge-success">Approved</span></li>
-              <li class="list-group-item">20 Jul 2021 - 25 Jul 2021<span
-                  class="badge badge-pill badge-danger">Rejected</span></li>
-              <li class="list-group-item">20 Aug 2021 - 25 Sep 2021<span
-                  class="badge badge-pill badge-primary">Applied</span></li>
-              <li class="list-group-item">20 Sep 2021 - 25 Oct 2021<span
-                  class="badge badge-pill badge-success">Approved</span></li>
-            </ul>
+            <ag-grid-angular [pagination]="true" style="width: 35rem;height:27rem;" class="ag-theme-alpine" [rowData]="rowDataHistory"
+            [columnDefs]="columnDefsHistory"></ag-grid-angular>
           </div>
         </div>
       </div>
@@ -94,7 +84,7 @@
         </div>
         <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordionExample2">
           <div class="card-body">
-            <ag-grid-angular style="width: 1040px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+            <ag-grid-angular [pagination]="true" style="width: 1040px; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
             [columnDefs]="columnDefs"></ag-grid-angular>
           </div>
         </div>
