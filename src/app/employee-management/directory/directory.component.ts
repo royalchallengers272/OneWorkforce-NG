@@ -94,14 +94,17 @@ export class DirectoryComponent implements OnInit {
   public empSearch() {
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
             this.rowData=data;
-            this.ngOnInit();
+          //  this.ngOnInit();
+          if(!this.isHrOut&&!this.isManagerOut){
+            this.rowData=[{}];
+    }
       })
   }
   public empSave() {
     this.profileEdit=false;
     let headers = { 'content-type': 'application/json'} ;
     this.profileSaved = true;
-    let empSaveObj = {"first_name":this.fName,"last_name":this.lName,"phone":this.phone,"theater":this.theatre,"email":this.email,"password":"password","address1":this.address1,"address2":this.address2,"city":this.city,"state":this.state,"zip":this.zip,"emp_no":this.employee_number};
+    let empSaveObj = {"first_name":this.fName,"last_name":this.lName,"phone":this.phone,"theatre":this.theatre,"email":this.email,"password":"password","address1":this.address1,"address2":this.address2,"city":this.city,"state":this.state,"zip":this.zip,"emp_no":this.employee_number};
     let body=JSON.stringify(empSaveObj);
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateDirectory',body,{'headers':headers}).subscribe(data => {
             this.profileSaved = true;

@@ -25,7 +25,7 @@ export class LeavesComponent implements OnInit {
   clickedLeaveEmpId:any;
   columnDefs = [
     { headerName: '',field: 'leave_id',hide: true },
-    { headerName: 'Employee Number',field: 'emp_no',sortable: true, filter: true },
+    { headerName: 'Employee Name',field: 'empname',sortable: true, filter: true },
     { headerName: 'Leave Type',field: 'leave_type',sortable: true, filter: true},
     { headerName: 'Start Date',field: 'from_date',sortable: true, filter: true},
     { headerName: 'End Date',field: 'to_date',sortable: true, filter: true},

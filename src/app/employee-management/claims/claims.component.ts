@@ -16,7 +16,7 @@ export class ClaimsComponent implements OnInit {
   rowData:any;
   columnDefs = [
     { headerName: '',field: 'expense_id',hide: true },
-    {  headerName: 'Employee number',field: 'emp_no',sortable: true, filter: true },
+    {  headerName: 'Employee Name',field: 'empname',sortable: true, filter: true },
     {  headerName: 'Expense Type',field: 'expense_type',sortable: true, filter: true},
     {  headerName: 'Description',field: 'description',sortable: true, filter: true},
     { headerName: 'Amount',field: 'amount',sortable: true, filter: true},
@@ -39,7 +39,7 @@ claimActionComments:any="";
 claimActionRadio:any="";
 rowDataHistory:any;
 columnDefsHistory = [
-  {  headerName: 'Employee number',field: 'emp_no',sortable: true, filter: true },
+  {  headerName: 'Employee Name',field: 'empname',sortable: true, filter: true },
   {  headerName: 'Expense Type',field: 'expense_type',sortable: true, filter: true},
   {  headerName: 'Description',field: 'description',sortable: true, filter: true},
   { headerName: 'Amount',field: 'amount',sortable: true, filter: true},

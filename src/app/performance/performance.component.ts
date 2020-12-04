@@ -33,7 +33,7 @@ export class PerformanceComponent implements OnInit {
 
   columnDefs = [
     { headerName: '',field: 'performance_id',hide: true },
-    { headerName: 'Employee Number',field: 'emp_no',sortable: true, filter: true },
+    { headerName: 'Employee Name',field: 'empname',sortable: true, filter: true },
     { headerName: 'Year',field: 'year',sortable: true, filter: true},
     { headerName: 'Development Goals',field: 'development_goals',sortable: true, filter: true},
     { headerName: 'Strengths',field: 'strengths',sortable: true, filter: true},
