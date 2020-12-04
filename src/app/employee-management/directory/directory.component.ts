@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
@@ -82,6 +83,9 @@ export class DirectoryComponent implements OnInit {
       this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getAllEmployeeDetails').subscribe(data => {
             this.rowData=data;
       })
+    }
+    if(!this.isHrOut&&!this.isManagerOut){
+            this.rowData=[{}];
     }
     // this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
     //         this.empOfManager = data.map(function (el) { return el.first_name+" "+el.last_name; });
