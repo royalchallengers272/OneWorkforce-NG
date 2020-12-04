@@ -15,28 +15,28 @@
             <form>
               <div class="form-group">
                 <label for="year">Year</label>
-                <input id="year" name="year" type="text" value="2019" class="form-control">
+                <input id="year" [disabled]=true [(ngModel)]="prevYear" name="prevYear" type="text" value="2019" class="form-control">
               </div>
               <div class="form-group">
                 <label for="devGoals">Development Goals</label>
-                <textarea id="devGoals" name="devGoals" cols="40" value ="2019-Dev-Goals" rows="2" class="form-control"></textarea>
+                <textarea [disabled]=true id="devGoals" [(ngModel)]="prevDevGoals" name="prevDevGoals" cols="40" rows="2" class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label for="strengths">Stengths</label>
-                <textarea id="strengths" name="strengths" cols="40" value ="2019-Strengths" rows="2" class="form-control"></textarea>
+                <textarea [disabled]=true id="strengths" [(ngModel)]="prevStrength" name="prevStrength" cols="40" rows="2" class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label for="responsibilities">Responsibilities</label>
-                <textarea id="responsibilities" value ="2019-Responsibilities" name="responsibilities" cols="40" rows="2"
+                <textarea [disabled]=true id="responsibilities" [(ngModel)]="prevRespon" name="prevRespon" cols="40" rows="2"
                   class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label for="accomlishments">Accomlishments</label>
-                <textarea id="accomlishments" value ="2019-Accomlishments" name="accomlishments" cols="40" rows="2" class="form-control"></textarea>
+                <textarea [disabled]=true id="accomlishments"  [(ngModel)]="prevAccompl" name="prevAccompl" cols="40" rows="2" class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label for="rating">Rating</label>
-                <input id="rating" name="rating"  value ="Outstanding" type="text" class="form-control">
+                <input [disabled]=true [(ngModel)]="prevRating" name="prevRating" id="rating"  type="text" class="form-control">
               </div>
             </form>
           </div>
@@ -174,7 +174,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <span *ngIf="evaluatePerformanceSaved">
+        <span *ngIf="evaluatePerformanceSaved" style="width: 17rem;height:3rem">
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             Saved!!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

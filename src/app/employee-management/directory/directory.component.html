@@ -16,13 +16,13 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="inputFName">First Name</label>
-                  <input type="text" [(ngModel)]="fName" name="fName" class="form-control" id="inputFName">
+                  <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="fName" name="fName" class="form-control" id="inputFName">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="inputLName">Last Name</label>
-                  <input type="text" [(ngModel)]="lName" name="lName" class="form-control" id="inputLName">
+                  <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="lName" name="lName" class="form-control" id="inputLName">
                 </div>
               </div>
               <div class="form-row">
@@ -39,37 +39,37 @@
               </div>
               <div class="form-group">
                 <label for="inputAddress">Address 1</label>
-                <input type="text" [(ngModel)]="address1" name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="address1" name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
               </div>
               <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input type="text" [(ngModel)]="address2" name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="address2" name="address2" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="inputCity">City</label>
-                  <input type="text" [(ngModel)]="city" name="city" class="form-control" id="inputCity">
+                  <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="city" name="city" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-5">
                   <label for="inputState">State</label>
-                  <input type="text" [(ngModel)]="state" name="state" class="form-control" id="inputState">
+                  <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="state" name="state" class="form-control" id="inputState">
                 </div>
                 <div class="form-group col-md-3">
                   <label for="inputZip">Zip</label>
-                  <input type="text" [(ngModel)]="zip" name="zip" class="form-control" id="inputZip">
+                  <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="zip" name="zip" class="form-control" id="inputZip">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPhone">Phone</label>
-                <input type="text" [(ngModel)]="phone" name="phone" class="form-control" id="inputPhone" placeholder="">
+                <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="phone" name="phone" class="form-control" id="inputPhone" placeholder="">
               </div>
               <div class="form-group">
                 <label for="inputDept">Department</label>
-                <input type="text" [(ngModel)]="department" name="department" class="form-control" id="inputDept" placeholder="">
+                <input type="text" [disabled]=true [(ngModel)]="department" name="department" class="form-control" id="inputDept" placeholder="">
               </div>
               <div class="form-group">
                 <label for="inputTheater">Theater</label>
-                <input type="text" [(ngModel)]="theatre" name="theatre" class="form-control" id="inputTheater" placeholder="">
+                <input type="text" [disabled]="profileEdit ? false : true" [(ngModel)]="theatre" name="theatre" class="form-control" id="inputTheater" placeholder="">
               </div>
               <!-- <div class="form-row"> -->
                 <div class="form-group">
@@ -81,7 +81,8 @@
                       </button>
                     </div>
                   </span>
-                  <button type="submit" (click)="empSave()" class="btn btn-primary float-right">Save</button>
+                  <button *ngIf="!profileEdit" type="submit" (click)="empEdit()" class="btn btn-primary float-right">Edit</button>
+                  <button *ngIf="profileEdit" type="submit" (click)="empSave()" class="btn btn-primary float-right">Save</button>
                 </div><br/>
                 <!-- <div class="form-group">
                   <button type="submit" class="btn btn-primary float-right">Save</button>

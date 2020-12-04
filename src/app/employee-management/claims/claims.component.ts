@@ -43,6 +43,7 @@ columnDefsHistory = [
   {  headerName: 'Expense Type',field: 'expense_type',sortable: true, filter: true},
   {  headerName: 'Description',field: 'description',sortable: true, filter: true},
   { headerName: 'Amount',field: 'amount',sortable: true, filter: true},
+  { headerName: 'Status',field: 'status',sortable: true, filter: true},
   { headerName: 'Created Date',field: 'created_date',sortable: true, filter: true }
 ];
 
@@ -57,7 +58,7 @@ columnDefsHistory = [
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingexpense?emp_no='+this.employee_number).subscribe(data => {
       this.rowData = data;
     })  
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingexpense?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getAllexpense?emp_no='+this.employee_number).subscribe(data => {
       this.rowDataHistory = data;
     }) 
   }
@@ -68,6 +69,7 @@ columnDefsHistory = [
     this.claimSubmitted = true;
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitexpense',body,{'headers':headers}).subscribe(data => {
             this.claimSubmitted = true;
+            this.ngOnInit();
       })
   }
   public claimAppRejAction() {
@@ -77,6 +79,7 @@ columnDefsHistory = [
     let body=JSON.stringify(empSaveObj);
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateexpense',body,{'headers':headers}).subscribe(data => {
             this.claimActionSaved = true;
+            this.ngOnInit();
       })
   }
 

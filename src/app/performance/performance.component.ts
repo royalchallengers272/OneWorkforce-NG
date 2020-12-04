@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-performance',
   templateUrl: './performance.component.html',
@@ -21,6 +22,14 @@ export class PerformanceComponent implements OnInit {
   evaPerfStat:any;
   evaPerfComm:any;
   evaluatePerformanceSaved:boolean=false;
+
+  prevYear:any;
+  prevDevGoals:any;
+  prevStrength:any;
+  prevRespon:any;
+  prevAccompl:any;
+  prevRating:any;
+
 
   columnDefs = [
     { headerName: '',field: 'performance_id',hide: true },
@@ -56,6 +65,14 @@ rowData:any;
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingperformance?emp_no='+this.employee_number).subscribe(data => {
       this.rowData = data;
     })  
+    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getlastyearperformance?emp_no='+this.employee_number).subscribe(data => {
+              this.prevYear=data[0].year;
+              this.prevDevGoals=data[0].development_goals;
+              this.prevStrength=data[0].strengths;
+              this.prevRespon=data[0].responsibilities;
+              this.prevAccompl=data[0].accomplishments;
+              this.prevRating=data[0].status;
+    })
   }
   public submitPerformance() {
     let headers = { 'content-type': 'application/json'} ;
@@ -64,6 +81,7 @@ rowData:any;
     let body=JSON.stringify(empSaveObj);
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitperformance',body,{'headers':headers}).subscribe(data => {
             this.submitPerformanceSaved = true;
+            this.ngOnInit();
       })
   }
   public evaluatePerformance() {
@@ -74,6 +92,7 @@ rowData:any;
     let body=JSON.stringify(empSaveObj);
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateperformance',body,{'headers':headers}).subscribe(data => {
           this.evaluatePerformanceSaved=true;
+          this.ngOnInit();
     })
   }
 

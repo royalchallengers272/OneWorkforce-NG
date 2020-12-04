@@ -33,6 +33,7 @@ export class DirectoryComponent implements OnInit {
   theatre:any;
   phone:any;
   profileSaved:boolean=false;
+  profileEdit:boolean=false;
 
   fName_S:any= "";
   lName_S:any= "";
@@ -45,6 +46,7 @@ export class DirectoryComponent implements OnInit {
 
   ngOnInit() {
     this.profileSaved = false;
+    this.profileEdit = false;
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid='+this.employee_number).subscribe(data => {
               this.fName=data[0].first_name;
               this.lName=data[0].last_name;
@@ -88,16 +90,22 @@ export class DirectoryComponent implements OnInit {
   public empSearch() {
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
             this.rowData=data;
+            this.ngOnInit();
       })
   }
   public empSave() {
+    this.profileEdit=false;
     let headers = { 'content-type': 'application/json'} ;
     this.profileSaved = true;
     let empSaveObj = {"first_name":this.fName,"last_name":this.lName,"phone":this.phone,"theater":this.theatre,"email":this.email,"password":"password","address1":this.address1,"address2":this.address2,"city":this.city,"state":this.state,"zip":this.zip,"emp_no":this.employee_number};
     let body=JSON.stringify(empSaveObj);
     this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateDirectory',body,{'headers':headers}).subscribe(data => {
             this.profileSaved = true;
+            this.ngOnInit();
       })
+  }
+  public empEdit() {
+    this.profileEdit=true;
   }
 
 }

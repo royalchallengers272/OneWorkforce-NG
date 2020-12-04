@@ -69,6 +69,7 @@ public applyLeave() {
   let body=JSON.stringify(empSaveObj);
   this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitleave',body,{'headers':headers}).subscribe(data => {
           this.applyLeaveSaved = true;
+          this.ngOnInit();
     })
 }
 public leaveAppRejAction() {
@@ -78,6 +79,7 @@ public leaveAppRejAction() {
   let body=JSON.stringify(empSaveObj);
   this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateleave',body,{'headers':headers}).subscribe(data => {
           this.leaveActionSaved = true;
+          this.ngOnInit();
     })
 }
 
