@@ -95,9 +95,6 @@ export class DirectoryComponent implements OnInit {
     this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
             this.rowData=data;
           //  this.ngOnInit();
-          if(!this.isHrOut&&!this.isManagerOut){
-            this.rowData=[{}];
-    }
       })
   }
   public empSave() {
