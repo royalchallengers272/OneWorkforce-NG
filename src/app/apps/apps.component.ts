@@ -14,4 +14,8 @@ export class AppsComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit(): void {
+    (<any>window).twttr.widgets.load();
+}
+
 }
