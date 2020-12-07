@@ -49,7 +49,7 @@ export class AppComponent {
           //   emplIdTemp = 10003;
           //   this.isManager=false;
           // }
-          this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid='+result.email).subscribe(data => {
+          this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getEmployeeDetails?empid='+result.email).subscribe(data => {
               this.employee_number = data[0].emp_no;
               var isManager = data[0].managerflag;
               var hrFlag = data[0].hrflag

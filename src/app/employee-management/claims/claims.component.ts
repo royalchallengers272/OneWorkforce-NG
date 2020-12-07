@@ -55,10 +55,10 @@ columnDefsHistory = [
   ngOnInit() {
     this.claimActionSaved=false;
     this.claimSubmitted = false;
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingexpense?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getPendingexpense?emp_no='+this.employee_number).subscribe(data => {
       this.rowData = data;
     })  
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getAllexpense?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getAllexpense?emp_no='+this.employee_number).subscribe(data => {
       this.rowDataHistory = data;
     }) 
   }
@@ -67,7 +67,7 @@ columnDefsHistory = [
     let empSaveObj = {"emp_no":this.employee_number,"expense_type":this.expenseType,"description":this.claimDesc,"amount":this.claimAmount};
     let body=JSON.stringify(empSaveObj);
     this.claimSubmitted = true;
-    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitexpense',body,{'headers':headers}).subscribe(data => {
+    this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/submitexpense',body,{'headers':headers}).subscribe(data => {
             this.claimSubmitted = true;
             this.ngOnInit();
       })
@@ -77,7 +77,7 @@ columnDefsHistory = [
     this.claimActionSaved = true;
     let empSaveObj = {"approver_id":this.clickedClaimEmpId.approver_id,"status":this.claimActionRadio,"expense_id":this.clickedClaimEmpId.expense_id};
     let body=JSON.stringify(empSaveObj);
-    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateexpense',body,{'headers':headers}).subscribe(data => {
+    this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/updateexpense',body,{'headers':headers}).subscribe(data => {
             this.claimActionSaved = true;
             this.ngOnInit();
       })

@@ -55,10 +55,10 @@ columnDefsHistory = [
   ngOnInit() {
     this.leaveActionSaved=false;
     this.applyLeaveSaved = false;
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingleaves?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getPendingleaves?emp_no='+this.employee_number).subscribe(data => {
       this.rowData = data;
     })  
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getleavedetails?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getleavedetails?emp_no='+this.employee_number).subscribe(data => {
       this.rowDataHistory = data;
     })  
 }
@@ -67,7 +67,7 @@ public applyLeave() {
   this.applyLeaveSaved = true;
   let empSaveObj = {"emp_no":this.employee_number,"leave_type":this.leaveType,"from_date":this.leaveStartDt,"to_date":this.leaveEnd,"approval_status":"Pending","reason":this.leaveReason};
   let body=JSON.stringify(empSaveObj);
-  this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitleave',body,{'headers':headers}).subscribe(data => {
+  this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/submitleave',body,{'headers':headers}).subscribe(data => {
           this.applyLeaveSaved = true;
           this.ngOnInit();
     })
@@ -77,7 +77,7 @@ public leaveAppRejAction() {
   this.leaveActionSaved = true;
   let empSaveObj = {"leave_id":this.clickedLeaveEmpId.leave_id,"approval_status":this.leaveActionRadio,"approvercomments":this.leaveActionComments,"approver_id":this.clickedLeaveEmpId.approver_id};
   let body=JSON.stringify(empSaveObj);
-  this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateleave',body,{'headers':headers}).subscribe(data => {
+  this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/updateleave',body,{'headers':headers}).subscribe(data => {
           this.leaveActionSaved = true;
           this.ngOnInit();
     })

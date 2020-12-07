@@ -62,10 +62,10 @@ rowData:any;
   ngOnInit() {
     this.evaluatePerformanceSaved=false;
     this.submitPerformanceSaved=false;
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getPendingperformance?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getPendingperformance?emp_no='+this.employee_number).subscribe(data => {
       this.rowData = data;
     })  
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getlastyearperformance?emp_no='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getlastyearperformance?emp_no='+this.employee_number).subscribe(data => {
               this.prevYear=data[0].year;
               this.prevDevGoals=data[0].development_goals;
               this.prevStrength=data[0].strengths;
@@ -79,7 +79,7 @@ rowData:any;
     this.submitPerformanceSaved = true;
     let empSaveObj = {"emp_no":this.employee_number,"year":this.perfYear,"development_goals":this.perfDevGoals,"strengths":this.perfStrengths,"accomplishments":this.perfAccom,"responsibilities":this.perfRespo};
     let body=JSON.stringify(empSaveObj);
-    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/submitperformance',body,{'headers':headers}).subscribe(data => {
+    this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/submitperformance',body,{'headers':headers}).subscribe(data => {
             this.submitPerformanceSaved = true;
             this.ngOnInit();
       })
@@ -90,7 +90,7 @@ rowData:any;
     this.submitPerformanceSaved = true;
     let empSaveObj = {"performance_id":this.clickedPerfEmpId.performance_id,"status":this.evaPerfStat,"approver_id":this.clickedPerfEmpId.approver_id,"approver_comments":this.evaPerfComm};
     let body=JSON.stringify(empSaveObj);
-    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateperformance',body,{'headers':headers}).subscribe(data => {
+    this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/updateperformance',body,{'headers':headers}).subscribe(data => {
           this.evaluatePerformanceSaved=true;
           this.ngOnInit();
     })
