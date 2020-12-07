@@ -29,6 +29,7 @@ export class PerformanceComponent implements OnInit {
   prevRespon:any;
   prevAccompl:any;
   prevRating:any;
+  prevAppComm:any;
 
 
   columnDefs = [
@@ -72,6 +73,7 @@ rowData:any;
               this.prevRespon=data[0].responsibilities;
               this.prevAccompl=data[0].accomplishments;
               this.prevRating=data[0].status;
+              this.prevAppComm=data[0].approver_comments;
     })
   }
   public submitPerformance() {
