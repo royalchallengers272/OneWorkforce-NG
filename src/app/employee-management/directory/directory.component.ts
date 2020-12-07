@@ -48,7 +48,7 @@ export class DirectoryComponent implements OnInit {
   ngOnInit() {
     this.profileSaved = false;
     this.profileEdit = false;
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeDetails?empid='+this.employee_number).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getEmployeeDetails?empid='+this.employee_number).subscribe(data => {
               this.fName=data[0].first_name;
               this.lName=data[0].last_name;
               this.email=data[0].email;
@@ -62,7 +62,7 @@ export class DirectoryComponent implements OnInit {
               this.theatre=data[0].theatre;
     })
     if(this.isManagerOut){
-      this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
+      this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
             this.rowData=data;
       })
     }
@@ -80,19 +80,19 @@ export class DirectoryComponent implements OnInit {
         { headerName: 'Phone',field: 'phone',sortable: true, filter: true},
         { headerName: 'Department',field: 'department',sortable: true, filter: true}
       ];
-      this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getAllEmployeeDetails').subscribe(data => {
+      this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getAllEmployeeDetails').subscribe(data => {
             this.rowData=data;
       })
     }
     if(!this.isHrOut&&!this.isManagerOut){
             this.rowData=[{}];
     }
-    // this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
+    // this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getManagerEmployeeDetails?empid=10001').subscribe(data => {
     //         this.empOfManager = data.map(function (el) { return el.first_name+" "+el.last_name; });
     // })
   }
   public empSearch() {
-    this.http.get<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
+    this.http.get<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/getEmployeeSearch?first_name='+this.fName_S+'&last_name='+this.lName_S+'&emp_no='+this.empNumber_S+'&email='+this.email_S+'&phone='+this.phone_S+'&department='+this.department_S).subscribe(data => {
             this.rowData=data;
           //  this.ngOnInit();
       })
@@ -103,7 +103,7 @@ export class DirectoryComponent implements OnInit {
     this.profileSaved = true;
     let empSaveObj = {"first_name":this.fName,"last_name":this.lName,"phone":this.phone,"theatre":this.theatre,"email":this.email,"password":"password","address1":this.address1,"address2":this.address2,"city":this.city,"state":this.state,"zip":this.zip,"emp_no":this.employee_number};
     let body=JSON.stringify(empSaveObj);
-    this.http.post<any>('http://ec2-52-53-164-188.us-west-1.compute.amazonaws.com:8080/ONEWORKFORCE/api/updateDirectory',body,{'headers':headers}).subscribe(data => {
+    this.http.post<any>('http://oneworkforcesvc-env-1.eba-hf6yw8qp.us-west-1.elasticbeanstalk.com/ONEWORKFORCE/api/updateDirectory',body,{'headers':headers}).subscribe(data => {
             this.profileSaved = true;
             this.ngOnInit();
       })
